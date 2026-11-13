@@ -61,6 +61,6 @@ uv run python -m slam_colmap.visualize_trajectory --file <Path>
 
 ## **IV. Reference**
 
-[^1] Schönberger, J. L., & Frahm, J.-M. (2016). *Structure-from-Motion Revisited*. In **Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)**.
+[^1]: Schönberger, J. L., & Frahm, J.-M. (2016). *Structure-from-Motion Revisited*. In **Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)**.
 
-[^2] Pan, L., Barath, D., Pollefeys, M., & Schönberger, J. L. (2024). *Global Structure-from-Motion Revisited*. In **Proceedings of the European Conference on Computer Vision (ECCV)**.
+[^2]: Pan, L., Barath, D., Pollefeys, M., & Schönberger, J. L. (2024). *Global Structure-from-Motion Revisited*. In **Proceedings of the European Conference on Computer Vision (ECCV)**.
