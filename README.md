@@ -58,6 +58,7 @@ uv run python -m slam_colmap.post-processing --workspace <Path>
 ```bash
 uv run python -m slam_colmap.visualize_trajectory --file <Path>
 ```
+![Fig](/assets/images/traj1.png)
 
 ## **IV. Reference**
 
