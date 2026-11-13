@@ -5,9 +5,9 @@ This small project utilize the `Colmap` SLAM pipeline to process a custom datase
 ## I. Install Colmap and Glomap
 1. Install `Colmap` and `Glomap` following the official guide:
 
-**Colmap**: [Install](https://colmap.github.io/install.html#build-from-source)[^1]
+**Colmap**[^1]: [Install](https://colmap.github.io/install.html#build-from-source)
 
-**Glomap**: [Install](https://github.com/colmap/glomap/tree/main)[^2]
+**Glomap**[^2]: [Install](https://github.com/colmap/glomap/tree/main)
 
 2. Install this package:
 ```bash
