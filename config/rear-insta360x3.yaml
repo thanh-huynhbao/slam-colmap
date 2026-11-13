@@ -1,0 +1,99 @@
+camera rear
+
+%YAML:1.0
+
+# ORB-SLAM3 monocular-inertial settings for X3 IAQNF2603TPF76 _00_ lens,
+# native fisheye downscaled to 1440x1440. Calibration matches the frozen
+# x3-tpf76-verified-rest-v1 OpenVINS profile: Kalibr pinhole-equidistant
+# intrinsics, T_cam_imu (inverted here), and measured stationary IMU noise.
+#
+# ORB-SLAM3 has no clock-offset setting. Kalibr timeshift_cam_imu is stored
+# below for umi_mvp.orbslam3, which adds it to each image timestamp
+# (t_imu = t_cam + shift).
+#
+# Validated on recording014: 1.62 cm position RMS against the AprilGrid
+# (OpenVINS 1.69 cm on the same frames). Raising nFeatures to 6000 started
+# tracking earlier but converged to a wrong metric scale; keep 3000.
+
+File.version: "1.0"
+
+Camera.type: "KannalaBrandt8"
+
+Camera.width: 1440
+Camera.height: 1440
+Camera.newWidth: 1440
+Camera.newHeight: 1440
+
+Camera.fx: 378.946913
+Camera.fy: 378.559525
+Camera.cx: 718.135234
+Camera.cy: 714.302423
+
+
+Camera.k1: 0.090257
+Camera.k2: 0.061769
+Camera.k3: -0.213039
+Camera.k4: 0.182603
+
+Camera1.fx: 378.946913
+Camera1.fy: 378.559525
+Camera1.cx: 718.135234
+Camera1.cy: 714.302423
+
+Camera1.k1: 0.090257
+Camera1.k2: 0.061769
+Camera1.k3: -0.213039
+Camera1.k4: 0.182603
+
+Camera.fps: 30
+Camera.RGB: 1
+
+# Read by umi_mvp.orbslam3, ignored by ORB-SLAM3.
+Camera.timeshiftCamImuNs: -6887872
+
+# T_b_c1: camera -> IMU body; inverse of Kalibr T_cam_imu.
+IMU.T_b_c1: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: f
+   data: [  0.00526886737803689, -0.00153876361314836,  0.999984935508079,    0.0329345891050591,
+           -0.00374270448516768, -0.999991842285569,   -0.00151905413056537, -0.0104310210950556,
+            0.999979115381762,   -0.00373464440847219, -0.0052745835335979,  -0.0213315756708269,
+            0, 0, 0, 1]
+
+# T_c1_c_front: front (10) camera -> this rear (00) camera.
+Camera.T_c1_c_front: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: f
+   data: [ -0.999672067651387, -0.025570421469018,  0.001382281989337,  0.009844133730073,
+           -0.025567487548032,  0.999670892457397,  0.002100084263359,  0.000352239638654,
+           -0.001435527109643,  0.002064054100244, -0.999996839466300, -0.043024417565203,
+            0, 0, 0, 1]
+
+IMU.InsertKFsWhenLost: 1
+
+# Measured stationary noise (continuous-time densities).
+IMU.NoiseGyro: 6.289281055894953e-05
+IMU.NoiseAcc: 0.00047223533277946305
+IMU.GyroWalk: 3.6495904877171105e-06
+IMU.AccWalk: 4.398351678328365e-05
+# X3 1000 Hz IMU block-averaged by 5 (~199.3 Hz).
+IMU.Frequency: 200.0
+
+ORBextractor.nFeatures: 3000
+ORBextractor.scaleFactor: 1.2
+ORBextractor.nLevels: 8
+ORBextractor.iniThFAST: 12
+ORBextractor.minThFAST: 5
+
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1.0
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2.0
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3.0
+Viewer.ViewpointX: 0.0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -3.5
+Viewer.ViewpointF: 500.0

@@ -1,0 +1,73 @@
+# config/params.yaml
+
+paths:
+  # Thư mục chứa các file .insv gốc
+  raw_data_dir: "data/raw-data"
+
+  # Thư mục chứa workspace của từng video sau preprocessing
+  processed_data_dir: "data"
+
+  # Thư mục ảnh bên trong workspace; giữ cố định là frontlens
+  image_dir: "frontlens"
+
+  # Tên các thư mục kết quả
+  database_name: "database.db"
+  colmap_output_dir: "colmap"
+  glomap_output_dir: "glomap"
+
+
+preprocessing:
+  # Kích thước ảnh đầu ra
+  image_width: 1440
+  image_height: 1440
+
+  # Tên lens cần xử lý
+  lens: "frontlens"
+
+  # Định dạng ảnh đầu ra
+  image_format: "jpg"
+
+  # Giữ lại việc tính timestamp từ frame index và FPS
+  # Nếu cần đồng bộ IMU chính xác, cần dùng timestamp thực từ video.
+  timestamp_source: "frame_index"
+
+
+slam:
+  # Feature extraction
+  camera_model: "OPENCV_FISHEYE"
+
+  # Thứ tự:
+  # fx, fy, cx, cy, k1, k2, k3, k4
+  camera_params:
+    - 378.946913
+    - 378.559525
+    - 718.135234
+    - 714.302423
+    - 0.090257
+    - 0.061769
+    - -0.213039
+    - 0.182603
+
+  single_camera: true
+  use_gpu: true
+  max_num_features: 2000
+
+  # Sequential matching
+  sequential_matching_overlap: 10
+
+  # Reconstruction backend: colmap hoặc glomap
+  mapper: "colmap"
+
+  # Tên executable
+  colmap_executable: "colmap"
+  glomap_executable: "glomap"
+
+postprocessing:
+  # Chọn nguồn trajectory: colmap hoặc glomap
+  source: "colmap"
+
+  # Định dạng đầu ra: csv hoặc txt
+  output_format: "csv"
+
+  # Chuẩn hóa để pose đầu tiên trở thành identity
+  zero_initialize: true
