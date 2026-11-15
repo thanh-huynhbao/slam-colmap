@@ -1,5 +1,6 @@
 # **SLAM with Colmap**
 **Author**: Thanh B. Huynh
+
 ---
 This small project utilize the `Colmap` SLAM pipeline to process a custom dataset. The dataset is created by using `fisheye lens` camera and store in `.insv` format. The aim is to create a set of camera pose trajectory according to recorded videos.
 ## I. Install Colmap and Glomap
